@@ -9,6 +9,10 @@
 		"storybook": "start-storybook -p 6006",
 		"build-storybook": "build-storybook"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/3dyuval/super-powers-components.git"
+	},
 	"dependencies": {
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0"
