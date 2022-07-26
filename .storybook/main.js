@@ -1,3 +1,5 @@
+const custom = require('./wepback.config');
+
 module.exports = {
   "stories": [
     "../src/**/*.stories.mdx",
@@ -5,9 +7,23 @@ module.exports = {
   ],
   "addons": [
     "@storybook/addon-links",
-    "@storybook/addon-essentials"
+    "@storybook/addon-essentials",
   ],
   "core": {
     "builder": "@storybook/builder-vite"
-  }
+  },
+  typescript: {
+    check: true,
+    checkOptions: {},
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+    },
+  },
+  "staticDirs": ['../src/stories/styles',],
+  // webpackFinal: async (config) => {
+  //   return { ...config, module: { ...config.module, rules: custom.module.rules } };
+  // },
+
 }

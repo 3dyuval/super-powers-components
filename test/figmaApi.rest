@@ -1,0 +1,12 @@
+
+
+###
+
+GET https://api.figma.com/v1/files/52BjninxgOHKJXatbtvHIp HTTP/1.1
+
+{
+"Content-Type": application/json,
+"X-Figma-Token": "figd_ALzkxGp1naaH6Uh4hVHUO5gBhxQg2T3ZXrpld9L4"
+}
+
+###

@@ -1,10 +1,17 @@
 import react from 'react'
-import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions';
 
 import { Button } from '..'
 
-const stories = storiesOf('App test', module)
+export default {
+    title: 'Components/Button',
+    component: Button,
 
-stories.add('App', () => {
-    return (<Button />)
-})
+}
+
+const Template = args => <Button {...args} />
+
+export const Default = Template.bind({})
+Default.args = {
+    label: 'Click Me',
+}
