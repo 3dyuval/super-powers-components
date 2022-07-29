@@ -78,4 +78,4 @@ const UserAvatar = (props: Props) => {
 }
 
 
-export { UserAvatarWrapper as User }
+export { UserAvatarWrapper as UserAvatar }

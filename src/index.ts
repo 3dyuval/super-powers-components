@@ -1,7 +1,7 @@
 export { Button } from './components/Button'
 export { ErrorFallback } from './components/ErrorFallback'
 export { PluginsList } from './components/PluginsList'
-export { User } from './components/User'
+export { UserAvatar } from './components/User'
 export { Pill } from './components/Pill'
 export { Router } from './components/Router'
 export { Navigation } from './components/Router/Navigation'
