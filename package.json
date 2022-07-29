@@ -18,7 +18,7 @@
 	"devDependencies": {
 		"react-router-dom": "^6.3.0"
 	},
-	"dependencies": {
+	"peerDependencies": {
 		"@faker-js/faker": "^7.3.0",
 		"@open-wc/webpack-import-meta-loader": "^0.4.7",
 		"@originjs/vite-plugin-commonjs": "^1.0.3",
