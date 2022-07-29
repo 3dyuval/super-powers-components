@@ -2,7 +2,7 @@ import React from 'react'
 import { StyledBox } from '../Globals'
 import { Card, FlexRow } from '../Globals'
 
-export const NewsArticle = ({ header, title, text }) => {
+const NewsArticle = ({ header, title, text }) => {
 
     return (
         <Card>
@@ -25,3 +25,5 @@ export const NewsArticleList = ({ news = [] }) => {
             : 'Old news...'
     )
 }
+
+export { NewsArticle as News }
