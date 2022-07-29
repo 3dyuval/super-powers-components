@@ -25,3 +25,5 @@ dist-ssr
 
 figma-color-vars.css
 firebase
+
+.env

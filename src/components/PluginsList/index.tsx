@@ -23,7 +23,7 @@ interface PluginItemProps {
     plugins: Plugin[];
 }
 
-export const PluginsList = () => {
+const PluginsListWrapper = () => {
 
 
     const [pluginsList, setPluginsList] = React.useState(pluginsDefault)
@@ -51,9 +51,9 @@ const PluginsListItems = ({ plugins }: PluginItemProps) => {
                         <img src={plugin.image} width='40%' />
                         <FlexCol justifyContent='flex-start'>
                             <h3>{plugin.title}</h3>
-                            <p>{plugin.excerpt}</p>
                         </FlexCol>
                     </FlexRow>
+                    <p>{plugin.excerpt}</p>
                     <FlexRow justifyContent="flex-end" style={{ width: '100%' }}>
                         <Button label="Check it out now" primary></Button>
                     </FlexRow>
@@ -65,3 +65,6 @@ const PluginsListItems = ({ plugins }: PluginItemProps) => {
 
 
 }
+
+
+export { PluginsListWrapper as PluginsList }

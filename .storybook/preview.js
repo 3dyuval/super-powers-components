@@ -1,4 +1,4 @@
-import { withAuthProvider } from "./authProvider";
+import { withProviders } from "./withProviders";
 import { cssDecorator } from "./cssDecorator";
 import './styles-base.css';
 import '../src/stories/styles/super-styles.css'
@@ -27,7 +27,7 @@ export const parameters = {
 }
 
 //Custom Providers
-export const decorators = [withAuthProvider, cssDecorator];
+export const decorators = [withProviders, cssDecorator];
 
 //Toolbar global options
 export const globalTypes = {
@@ -41,28 +41,6 @@ export const globalTypes = {
       showName: true,
       dynamicTitle: true,
     },
-  },
-  logging: {
-    name: 'User Loggin',
-    description: 'User Login state',
-    defaultValue: 'Logged Out',
-    icon: 'check',
-    toolbar: {
-      items: ['Logged Out', 'Logging In', 'Logged In'],
-      showName: true,
-      dynamicTitle: true,
-    },
-  },
-  proUser: {
-    name: 'Pro User',
-    description: 'Purchased user account',
-    defaultValue: false,
-    icon: 'check',
-    toolbar: {
-      items: ['No Pro', 'Pro'],
-      showName: true,
-      dynamicTitle: true,
-    },
-  },
+  }
 };
 

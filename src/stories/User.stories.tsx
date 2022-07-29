@@ -13,6 +13,7 @@ export default {
     }
 }
 
+
 const GlobalTemplate = (args, { globals }) => <UserAvatar {...args} {...globals} />
 export const Default = GlobalTemplate.bind({})
 

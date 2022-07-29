@@ -1,4 +1,3 @@
-const custom = require('./wepback.config');
 
 module.exports = {
   "stories": [
@@ -22,8 +21,5 @@ module.exports = {
     },
   },
   "staticDirs": ['../src/stories/styles',],
-  // webpackFinal: async (config) => {
-  //   return { ...config, module: { ...config.module, rules: custom.module.rules } };
-  // },
 
 }

@@ -3,26 +3,43 @@ import { createMachine, assign, InterpreterFrom } from 'xstate'
 import { useInterpret } from "@xstate/react"
 import { faker } from '@faker-js/faker'
 
-const useFaker = () => {
-    return {
-        userName: faker.internet.userName(),
-        accountType: 'free',
-        picture: faker.internet.avatar(),
-        fullName: `${faker.name.firstName()} ${faker.name.lastName()}`,
-        plugins: [{ plugin1: true }, { plugin2: false }, { plugin3: false }, { plugin4: true }],
-    }
+export type User = {
+    userName: string,
+    fullName: string,
+    picture: string,
+    plugins: Plugin[],
 }
+
+type Plugin = {
+    id: string,
+    name: string,
+    verified: boolean,
+    purchased: boolean
+}
+
+const login = (): Promise<User> => {
+    return new Promise(resolve => resolve({
+        userName: faker.internet.userName(),
+        fullName: `${faker.name.firstName()} ${faker.name.lastName()}`,
+        picture: faker.internet.avatar(),
+        plugins: [
+            { id: '1', name: 'rick and morty', purchased: true, verified: false },
+            { id: '2', name: 'suepr color', purchased: false, verified: true },
+            { id: '3', name: 'suepr color pro', purchased: false, verified: false },
+        ],
+    }))
+}
+
 
 const authMachine = createMachine({
     id: 'authMachine',
     context: {
         currentUser: {
             userName: '',
-            accountType: '',
-            picture: '',
             fullName: '',
+            picture: '',
             plugins: [],
-        },
+        } as User,
         errorMessage: '',
     },
     initial: 'loggedOut',
@@ -35,15 +52,13 @@ const authMachine = createMachine({
         loading: {
             invoke: {
                 id: 'logIn',
-                src: () => new Promise((resolve, reject) => {
-                    setTimeout(() => resolve(useFaker()), 2000)
-                }),
+                src: login,
                 onDone: {
                     target: 'loggedIn',
                     actions: assign({ currentUser: (_, e) => e.data }),
                 },
                 onError: {
-                    target: 'failure',
+                    target: 'fail',
                     actions: assign({ errorMessage: (_, e) => e.data })
                 }
             },
@@ -55,7 +70,7 @@ const authMachine = createMachine({
             },
             exit: assign({ currentUser: '' }),
         },
-        failure: {
+        fail: {
             on: {
                 LOGIN: 'loading',
             }

@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react'
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import { Header } from '../Header'
 import { GlobalStyle } from '../Globals'
+import { Account } from '../Views'
 
 import { isURL, isComponent } from './NavItem'
 
@@ -29,6 +30,7 @@ const Router = (props: RouterProps) => {
       {props.routes && <Header {...props} />}
       <Routes>
         {props.routes && props.routes.map(mapRoute)}
+        <Route path='/account' element={<Account />} />
       </Routes>
     </HashRouter>
 
